@@ -15,3 +15,12 @@ This project was built as a beginner project to practice core Rust concepts: own
 Make sure you have Rust and Cargo installed on your system. You can check by running:
 ```bash
 cargo --version
+```
+
+## How to Run
+* Clone this repository
+* Change your directory so you are inside the project folder
+* Run the application using Cargo:
+  ```bash
+  cargo run
+  ```
