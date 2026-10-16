@@ -7,7 +7,7 @@ fn main() {
 	println!("Welcome to your Notepad!");
 
 	println!();
-	println!("Commands: [add]  [remove]  [list]  [save]  [delete]  [exit]\n");
+	println!("Commands: [add]  [remove]  [list]  [save]  [exit]\n");
 
 	loop {
 		print!("> ");
@@ -68,6 +68,31 @@ fn main() {
 				}
 
 				println!();
+			}
+			"save" => {
+				if notes.is_empty() {
+					println!("List is empty. Consider adding a note before saving.");
+					continue;
+				}
+
+				print!("Enter a name for this list: ");
+				io::stdout().flush().unwrap();
+
+				let mut file_name = String::new();
+				io::stdin().read_line(&mut file_name).unwrap();
+				file_name = file_name.trim().to_string();
+
+				let file = format!("{file_name}.txt");
+				let notes_content = notes.join("\n");
+
+				match fs::write(&file, notes_content) {
+					Ok(_) => println!("Successfully saved notes to {file}!"),
+					Err(e) => println!("Failed to save file: {e}."),
+				}
+			}
+			"exit" => {
+				println!("Closing Notepad. See you next time!");
+				break;
 			}
 			_ => {
 				println!("Not a valid command.");
