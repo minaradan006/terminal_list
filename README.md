@@ -19,6 +19,9 @@ cargo --version
 
 ## How to Run
 * Clone this repository
+  ```bash
+  git clone https://github.com/minaradan006/terminal_list.git
+  ```
 * Change your directory so you are inside the project folder
 * Run the application using Cargo:
   ```bash
